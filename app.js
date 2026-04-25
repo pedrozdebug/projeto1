@@ -1,4 +1,4 @@
-const skins = ["67.png", "foot.png", "nahiegg.png", "thukunais.png"];
+const skins = ["67.png", "foot.png", "nahiegg.png", "thukunais.png", "pug.png"];
 const skinPath = (skin) => `/assets/skins/${skin}`;
 
 const menu = document.querySelector("#menu");
