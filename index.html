@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Jump7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="menu" class="menu-panel">
+        <div class="brand">
+          <span class="mark">J7</span>
+          <div>
+            <h1>Jump7</h1>
+            <p>Corrida multiplayer de reflexo, vidas e distancia.</p>
+          </div>
+        </div>
+
+        <label class="field">
+          <span>Nome</span>
+          <input id="playerName" maxlength="14" autocomplete="off" placeholder="Seu nome" />
+        </label>
+
+        <div class="skin-block">
+          <span>Skin</span>
+          <div id="skinGrid" class="skin-grid" aria-label="Escolha uma skin"></div>
+        </div>
+
+        <div class="room-actions">
+          <button id="createRoom" class="primary">Criar sala</button>
+          <div class="join-row">
+            <input id="roomCode" maxlength="6" autocomplete="off" placeholder="Codigo" />
+            <button id="joinRoom">Entrar</button>
+          </div>
+        </div>
+
+        <p id="status" class="status">Crie uma sala ou digite o codigo de uma existente.</p>
+      </section>
+
+      <section id="lobby" class="lobby-panel is-hidden">
+        <div class="brand">
+          <span class="mark">J7</span>
+          <div>
+            <h1>Sala criada</h1>
+            <p>Compartilhe o codigo e comece quando todos estiverem prontos.</p>
+          </div>
+        </div>
+
+        <div class="room-code-card">
+          <span>Codigo da sala</span>
+          <button id="lobbyCode" title="Copiar codigo da sala">------</button>
+        </div>
+
+        <div>
+          <span class="section-label">Jogadores</span>
+          <div id="lobbyPlayers" class="lobby-players"></div>
+        </div>
+
+        <button id="startGame" class="primary">Comecar partida</button>
+        <button id="leaveLobby" class="secondary">Voltar</button>
+      </section>
+
+      <section id="game" class="game-panel is-hidden">
+        <canvas id="gameCanvas"></canvas>
+        <div class="hud top-left">
+          <strong id="timer">00:00</strong>
+          <span id="distance">0 m</span>
+        </div>
+        <div class="hud top-center">
+          <span>Sala</span>
+          <button id="copyCode" title="Copiar codigo da sala">------</button>
+        </div>
+        <div class="hud top-right">
+          <span id="lives">3 vidas</span>
+          <span id="speed">1.0x</span>
+        </div>
+        <div id="dangerWarning" class="danger-warning is-hidden">Buraco negro proximo</div>
+        <div id="players" class="players"></div>
+        <button id="jumpButton" class="jump-button" title="Pular">^</button>
+        <div id="gameOver" class="game-over is-hidden">
+          <h2>Fim da corrida</h2>
+          <ol id="scoreboard"></ol>
+          <button id="restart">Jogar de novo</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
